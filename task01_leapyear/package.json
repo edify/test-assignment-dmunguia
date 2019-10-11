@@ -1,0 +1,14 @@
+{
+  "name": "edify-task01-leapyear",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest --testEnvironment='node'"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "jest": "^22.4.3"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}

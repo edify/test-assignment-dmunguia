@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - 8
+script: 
+  - npm install
+  - node_modules/plato/bin/plato -t "Edify Coding Test `echo ${PWD##*/}`" -r -d .plato -x .test.js -e .eslintrc **/calendar.js **/UrlUtils.js **/UserService.js
+  - npm test
+  - cd task04_datamodel ; mkdir report ; export DOCKER_COMPOSE_RUN_AS_USER="$(id -u):$(id -g)" ; docker-compose up --abort-on-container-exit 
+addons:
+  artifacts:
+    paths:
+    - .plato
+    - test-report.html
+    - task04_datamodel/report

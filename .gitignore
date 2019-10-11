@@ -1,0 +1,5 @@
+test-report.html
+node_modules/
+.vscode/
+**/report
+**/.plato

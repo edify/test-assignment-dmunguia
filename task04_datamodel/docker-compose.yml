@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+    db:
+        image: mysql:5.7
+        volumes:
+            - ./ddl:/docker-entrypoint-initdb.d
+        ports:
+            - '3306:3306'
+        environment:
+            - MYSQL_ROOT_PASSWORD=root            
+    schemacrawler:
+        image: schemacrawler/schemacrawler
+        depends_on:
+            - db
+        user: "${DOCKER_COMPOSE_RUN_AS_USER}"
+        links:
+            - 'db:db'
+        volumes:
+            - .:/share
+        command: /share/schemacrawler.sh
+        
